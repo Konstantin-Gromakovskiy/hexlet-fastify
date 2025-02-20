@@ -13,4 +13,11 @@ export default async function (fastify, opts) {
     if(!name) return 'Hellow world'
     return `Hellow ${name}`
   })
+  fastify.get('/user/:id/post/:postid', async function (request, response){
+    const userId = request.params.id
+    const postId = request.params.postid
+    
+    response.cod
+    return 'Это пользователь ' + userId + ' и пост ' + postId
+  })
 }
