@@ -1,8 +1,6 @@
-doctype html
-html(lang='en')
-head
-    title Hello Hexlet!
-body
-    main
-    h1= course.title
-    p= course.description
+extends ./layout/page.pug
+
+block content
+    div
+        h1= course.title
+        p= course.description

@@ -33,10 +33,15 @@ export default async function (fastify, opts) {
     return 'Это пользователь ' + userId + ' и пост ' + postId
   })
   fastify.get('/courses', (req, res) => res.view('courses', { courses: data.courses }));
+  
+  
   fastify.get('/courses/:id', (req, res) => {
     const id = req.params.id
     const course = data.courses.find((course) => course.id === Number(id))
-    console.log(data)
+    if(!course){
+      res.code(404).send({message: 'Course not found'})
+      return
+    }
     return res.view('course', { course })
   })
   
